@@ -1,26 +1,32 @@
 import { useState } from "react";
 import "./App.css";
 
+import { CiBurger, CiFries, CiApple } from "react-icons/ci";
+import { LuCakeSlice } from "react-icons/lu";
+import { BiSolidSushi } from "react-icons/bi";
+
 const App = () => {
   const [items, setItems] = useState([
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
-    "Item 5",
+    { id: 1, name: "Burger", icon: <CiBurger size={40} /> },
+    { id: 2, name: "Fries", icon: <CiFries size={40} /> },
+    { id: 3, name: "Apple", icon: <CiApple size={40} /> },
+    { id: 4, name: "Cake", icon: <LuCakeSlice size={40} /> },
+    { id: 5, name: "Sushi", icon: <BiSolidSushi size={40} /> },
   ]);
   const [droppedItems, setDroppedItems] = useState([]);
   const [message, setMessage] = useState("");
 
   const handleDragStart = (e, item) => {
-    e.dataTransfer.setData("text/plain", item);
+    e.dataTransfer.setData("text/plain", item.id);
   };
 
   const handleDrop = (e, target) => {
     e.preventDefault();
-    const item = e.dataTransfer.getData("text/plain");
-    if (target === "right" && items.includes(item)) {
-      setItems((prev) => prev.filter((i) => i !== item));
+    const itemId = e.dataTransfer.getData("text/plain");
+    const item = items.find((i) => i.id === parseInt(itemId));
+
+    if (target === "right" && item) {
+      setItems((prev) => prev.filter((i) => i.id !== item.id));
       setDroppedItems((prev) => [...prev, item]);
 
       if (items.length === 1) fetchSecretMessage();
@@ -53,12 +59,12 @@ const App = () => {
           <div className="space-y-2">
             {items.map((item) => (
               <div
-                key={item}
+                key={item.id}
                 className="bg-blue-500 text-white p-2 rounded-md cursor-pointer"
                 draggable
                 onDragStart={(e) => handleDragStart(e, item)}
               >
-                {item}
+                {item.icon}
               </div>
             ))}
           </div>
@@ -77,7 +83,7 @@ const App = () => {
                 key={index}
                 className="bg-green-500 text-white p-2 rounded-md"
               >
-                {item}
+                {item.icon}
               </div>
             ))}
           </div>
