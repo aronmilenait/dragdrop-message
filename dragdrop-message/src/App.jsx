@@ -12,6 +12,7 @@ import Panel from "./components/Panel";
 import DraggableItem from "./components/DraggableItem";
 import DroppedItem from "./components/DroppedItem";
 import SecretMessage from "./components/SecretMessage";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [items, setItems] = useState([
@@ -54,7 +55,7 @@ const App = () => {
       setMessage("Failed to fetch the secret message.");
     }
   };
-  
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-4">
       <Header />
@@ -75,6 +76,7 @@ const App = () => {
         </Panel>
       </div>
       <SecretMessage message={message} />
+      <Footer />
     </div>
   );
 };
