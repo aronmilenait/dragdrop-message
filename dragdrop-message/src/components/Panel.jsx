@@ -7,7 +7,10 @@ const Panel = ({ title, children, onDragOver, onDrop }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    onDragOver={onDragOver}
+    onDragOver={(e) => {
+      e.preventDefault();
+      onDragOver(e);
+    }}
     onDrop={onDrop}
   >
     <h2 className="text-2xl font-semibold mb-6 text-gray-800">{title}</h2>
