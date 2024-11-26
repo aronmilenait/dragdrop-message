@@ -51,7 +51,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center p-4">
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-4">
       <motion.div
         className="w-full max-w-4xl"
         initial={{ opacity: 0, y: -20 }}
