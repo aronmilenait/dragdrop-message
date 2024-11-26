@@ -10,7 +10,14 @@ Simple Drag & Drop website, with a modern iOS look. It allows the user to drag t
 - **React:** a JavaScript library for building dynamic and interactive user interfaces.
 - **Tailwind CSS:** a utility-first CSS framework for building modern, responsive, and consistent designs.
 - **Framer Motion:** a popular React library for animations and gesture-based interactions.
-- **Vercel:**: a cloud platform for deploying, hosting, and scaling modern web applications.
+- **Vercel:** a cloud platform for deploying, hosting, and scaling modern web applications.
+
+🗒️ **Note:** I followed the SOLID Principles in this project, to make it maintainable, scalable, and easier for other developers to understand:
+
+- Followed the **Single Responsibility Principle (SRP)** by dividing App into smaller components, like Header, Panel, and SecretMessage, so they are responsible for specific parts of the UI and/or logic.
+- Followed the **Open/Closed Principle (OCP)** by using props in the components, which determine their behavior, or passing different content to components like Panel via children, without modifying the component itself: just specific functionalities, like DraggableItem or DroppedItem.
+- Followed the **Liskov Substitution Principle (LSP)** since any component that follows the expected contract of props can replace or extend another.
+- Followed the **Interface Segregation Principle (ISP)** by using props, since each component only receives the data and methods it needs.
 
 ## 🖱️ Installation
 To run this project locally, follow these steps:
