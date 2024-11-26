@@ -25,13 +25,17 @@ To run this project locally, follow these steps:
 ### 1. Clone the repository:
 ``
 git clone https://github.com/aronmilenait/dragdrop-message
+``
+### 2. Navigate to the project directory, where all the website's files are located:
+``
 cd dragdrop-message
 ``
-### 2. Install dependencies:
+
+### 3. Install dependencies:
 ``
 npm install
 ``
-### 3. Run the development server:
+### 4. Run the development server:
 ``
 npm run dev
 ``
